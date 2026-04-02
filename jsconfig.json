@@ -1,12 +1,18 @@
 {
-	"include": ["config-eslint.js", "config-prettier.js", "scripts-nodejs.js"],
+	"include": [
+		"config-eslint.js",
+		"config-prettier.js",
+		"scripts-nodejs.js"
+	],
 	"compilerOptions": {
 		"allowJs": true,
 		"checkJs": true,
 		"target": "es2015",
 		"moduleResolution": "node16",
 		"module": "node16",
-		"lib": ["ES2019"],
+		"lib": [
+			"es2019"
+		],
 		"noEmit": false,
 		"declaration": true,
 		"emitDeclarationOnly": true,

@@ -2,11 +2,19 @@
 	"name": "@hyperupcall/scripts-nodejs",
 	"version": "0.8.0",
 	"type": "module",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/hyperupcall-projects/scripts-nodejs"
+	},
+	"bugs": {
+		"url": "https://github.com/hyperupcall-projects/scripts-nodejs/issues"
+	},
+	"author": "Edwin Kofler <edwin@kofler.dev> (https://edwinkofler.com)",
 	"private": false,
+	"packageManager": "pnpm@10.33.0+sha512.10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319",
 	"bin": {
 		"hyperupcall-scripts-nodejs": "./scripts-nodejs.js"
 	},
-	"types": "./output/index.d.ts",
 	"exports": {
 		"./config-eslint.js": {
 			"import": "./config-eslint.js",
@@ -26,7 +34,7 @@
 	],
 	"scripts": {
 		"format": "./scripts-nodejs.js format",
-		"lint": "./scripts-nodejs.js lint"
+		"lint": "hyperupcall-scripts-nodejs lint"
 	},
 	"dependencies": {
 		"@eslint-community/eslint-plugin-eslint-comments": "^4.7.1",
@@ -34,7 +42,7 @@
 		"@eslint/js": "^10.0.1",
 		"@eslint/json": "^1.1.0",
 		"@eslint/markdown": "^7.5.1",
-		"@hyperupcall/eslint-config": "^2.0.0",
+		"@hyperupcall/eslint-config": "^2.0.1",
 		"@hyperupcall/prettier-config": "^0.11.0",
 		"eslint": "^10.0.3",
 		"eslint-config-prettier": "^10.1.8",
@@ -51,9 +59,12 @@
 		"prettier-plugin-pkg": "^0.21.2"
 	},
 	"devDependencies": {
-		"@hyperupcall/scripts-nodejs": "^0.7.1",
+		"@hyperupcall/scripts-nodejs": "0.8.0",
 		"@types/node": "^25.5.0",
 		"typescript": "^5.9.3"
+	},
+	"markdownlint-cli2": {
+		"extends": "./node_modules/@hyperupcall/markdownlint-config/.markdownlint.json"
 	},
 	"prettier": "./config-prettier.js"
 }
