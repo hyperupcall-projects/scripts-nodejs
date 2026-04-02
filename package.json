@@ -18,9 +18,11 @@
 		}
 	},
 	"files": [
-		"config-eslint.js",
-		"config-prettier.js",
-		"scripts-nodejs.js"
+		"./config-eslint.d.ts",
+		"./config-eslint.js",
+		"./config-prettier.d.ts",
+		"./config-prettier.js",
+		"./scripts-nodejs.js"
 	],
 	"scripts": {
 		"format": "./scripts-nodejs.js format",
