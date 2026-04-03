@@ -1,0 +1,5 @@
+[rules]
+'nodejs/eslint/eslint-must-have-content' = 'off'
+'nodejs/eslint/eslint-must-not-have-dependencies' = 'off'
+'nodejs/prettier/package-json-must-have-correct-shape' = 'off'
+'nodejs/prettier/prettier-must-not-have-dependencies' = 'off'
