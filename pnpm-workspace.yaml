@@ -1,4 +1,7 @@
 onlyBuiltDependencies:
-  - unrs-resolver
+  - 'unrs-resolver'
 publicHoistPattern:
   - 'prettier'
+minimumReleaseAgeExclude:
+  - '@hyperupcall/eslint-config@2.1.0'
+  - '@hyperupcall/scripts-nodejs@v0.9.2'
