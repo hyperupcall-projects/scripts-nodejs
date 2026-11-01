@@ -21,7 +21,7 @@
 			"types": "./config-eslint.d.ts"
 		},
 		"./config-prettier.js": {
-			"require": "./config-prettier.js",
+			"import": "./config-prettier.js",
 			"types": "./config-prettier.d.ts"
 		}
 	},

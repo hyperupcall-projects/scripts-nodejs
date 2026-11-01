@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import * as path from 'node:path'
 import * as util from 'node:util'
 import { spawn } from 'child_process'
 
@@ -26,22 +27,24 @@ SUBCOMMANDS:
   lint [--fix] [--level none|dev|commit|release]
 `
 
-if (!positionals[0] || !positionals[1]) {
+if (!positionals[0]) {
 	process.stdout.write(helpText)
 	process.exit(1)
 }
 
+const prettierBin = path.join(import.meta.dirname, 'node_modules/.bin/prettier')
+const eslintBin = path.join(import.meta.dirname, 'node_modules/.bin/eslint')
 if (positionals[0] === 'format') {
 	if (values.fix) {
-		run(['prettier', '--write', '--ignore-unknown', '.'])
+		run([prettierBin, '--write', '--ignore-unknown', '.'])
 	} else {
-		run(['prettier', '--check', '--ignore-unknown', '.'])
+		run([prettierBin, '--check', '--ignore-unknown', '.'])
 	}
 } else if (positionals[0] === 'lint') {
 	if (values.fix) {
-		run(['eslint', '--fix', '.'])
+		run([eslintBin, '--fix', '.'])
 	} else {
-		run(['eslint', '.'])
+		run([eslintBin, '.'])
 	}
 } else {
 	throw new Error(`Invalid command: ${positionals[0]}`)
