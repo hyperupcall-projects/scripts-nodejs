@@ -11,6 +11,9 @@ importers:
       '@hyperupcall/eslint-config':
         specifier: 2.1.0
         version: 2.1.0(@typescript-eslint/utils@8.61.1(eslint@10.5.0)(typescript@5.9.3))(eslint-import-resolver-node@0.3.9)(eslint@10.5.0)(ts-declaration-location@1.0.7(typescript@5.9.3))(typescript@5.9.3)
+      '@hyperupcall/prettier-config':
+        specifier: ^0.12.0
+        version: 0.12.0(prettier@3.8.4)
       eslint:
         specifier: ^10.5.0
         version: 10.5.0
@@ -18,9 +21,6 @@ importers:
         specifier: ^3.8.4
         version: 3.8.4
     devDependencies:
-      '@hyperupcall/prettier-config':
-        specifier: ^0.12.0
-        version: 0.12.0(prettier@3.8.4)
       '@hyperupcall/scripts-nodejs':
         specifier: 0.10.0
         version: 0.10.0(@typescript-eslint/utils@8.61.1(eslint@10.5.0)(typescript@5.9.3))(eslint-import-resolver-node@0.3.9)(ts-declaration-location@1.0.7(typescript@5.9.3))(typescript@5.9.3)
