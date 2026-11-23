@@ -3,3 +3,5 @@
 'nodejs/eslint/eslint-must-not-have-dependencies' = 'off'
 'nodejs/prettier/package-json-must-have-correct-shape' = 'off'
 'nodejs/prettier/prettier-must-not-have-dependencies' = 'off'
+"nodejs/markdownlint/markdownlint-must-have-content" = "off"
+"nodejs/markdownlint/markdownlint-must-not-have-dependencies" = "off"

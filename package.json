@@ -17,21 +17,21 @@
 	},
 	"exports": {
 		"./config-eslint.js": {
-			"import": "./config-eslint.js",
-			"types": "./config-eslint.d.ts"
+			"types": "./config-eslint.d.ts",
+			"import": "./config-eslint.js"
 		},
 		"./config-prettier.js": {
-			"import": "./config-prettier.js",
-			"types": "./config-prettier.d.ts"
+			"types": "./config-prettier.d.ts",
+			"import": "./config-prettier.js"
 		}
 	},
 	"files": [
+		"./.markdownlint-cli2.mjs",
 		"./config-eslint.d.ts",
 		"./config-eslint.js",
 		"./config-prettier.d.ts",
 		"./config-prettier.js",
 		"./npmpackagejsonlint.config.js",
-		"./.markdownlint-cli2.mjs",
 		"./scripts-nodejs.js"
 	],
 	"scripts": {
@@ -48,12 +48,15 @@
 		"prettier": "^3.9.10"
 	},
 	"devDependencies": {
-		"@hyperupcall/scripts-nodejs": "0.10.0",
+		"@hyperupcall/scripts-nodejs": "0.13.0",
 		"@types/node": "^26.6.6",
 		"typescript": "^7.0.2"
 	},
 	"markdownlint-cli2": {
-		"extends": "./node_modules/@hyperupcall/markdownlint-config/.markdownlint.json"
+		"extends": "./node_modules/@hyperupcall/scripts-nodejs/.markdownlint.mjs"
+	},
+	"npmpackagejsonlint": {
+		"extends": "@hyperupcall/scripts-nodejs/npmpackagejsonlint.config.js"
 	},
 	"prettier": "./config-prettier.js"
 }

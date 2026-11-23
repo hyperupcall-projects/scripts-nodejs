@@ -1,0 +1,58 @@
+name: 'Website'
+
+on:
+  push:
+    branches: ['main']
+  workflow_dispatch:
+  workflow_call:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+
+jobs:
+  deploy:
+    runs-on: 'ubuntu-latest'
+    environment:
+      name: 'github-pages'
+      url: '${{ steps.deployment.outputs.page_url }}'
+    steps:
+      - uses: 'actions/checkout@v6'
+      - uses: 'actions/configure-pages@v5'
+        id: pages
+      - name: 'Prepare docs if missing'
+        shell: bash
+        run: |
+          if [ ! -d docs ]; then
+            mkdir -p docs/content docs/templates
+            printf '%s\n' 'base_url = "https://example.org"' > docs/config.toml
+            printf '+++\n+++\n\n' > docs/content/_index.md
+            cat README.md >> docs/content/_index.md
+            printf '%s\n' \
+              '<!doctype html><meta charset="utf-8">' \
+              '<main>{{ section.content | safe }}</main>' \
+              > docs/templates/index.html
+          fi
+      - name: 'Download Zola'
+        shell: bash
+        run: |
+          curl -fsSL \
+            'https://github.com/getzola/zola/releases/download/v0.23.0/zola-v0.23.0-x86_64-unknown-linux-gnu.tar.gz' \
+            -o "$RUNNER_TEMP/zola.tar.gz"
+          tar -xzf "$RUNNER_TEMP/zola.tar.gz" -C "$RUNNER_TEMP" zola
+      - name: 'Build site with Zola'
+        shell: bash
+        working-directory: 'docs'
+        env:
+          PAGES_BASE_URL: '${{ steps.pages.outputs.base_url }}'
+        run: |
+          "$RUNNER_TEMP/zola" build --base-url "$PAGES_BASE_URL" --output-dir public
+      - uses: 'actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b'
+        with:
+          path: 'docs/public'
+      - uses: 'actions/deploy-pages@v4'
+        id: deployment
