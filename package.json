@@ -11,14 +11,26 @@
 	},
 	"author": "Edwin Kofler <edwin@kofler.dev> (https://edwinkofler.com)",
 	"private": false,
-	"packageManager": "pnpm@12.16.1",
+	"packageManager": "pnpm@12.23.0",
 	"bin": {
 		"hyperupcall-scripts-nodejs": "./scripts-nodejs.js"
 	},
 	"exports": {
+		"./config-commitlint.js": {
+			"types": "./config-commitlint.d.ts",
+			"import": "./config-commitlint.js"
+		},
 		"./config-eslint.js": {
 			"types": "./config-eslint.d.ts",
 			"import": "./config-eslint.js"
+		},
+		"./config-markdownlint.mjs": {
+			"types": "./config-markdownlint.d.mts",
+			"import": "./config-markdownlint.mjs"
+		},
+		"./config-npmpackagejsonlint.js": {
+			"types": "./config-npmpackagejsonlint.d.ts",
+			"import": "./config-npmpackagejsonlint.js"
 		},
 		"./config-prettier.js": {
 			"types": "./config-prettier.d.ts",
@@ -26,12 +38,16 @@
 		}
 	},
 	"files": [
-		"./.markdownlint-cli2.mjs",
+		"./config-commitlint.d.ts",
+		"./config-commitlint.js",
 		"./config-eslint.d.ts",
 		"./config-eslint.js",
+		"./config-markdownlint.d.mts",
+		"./config-markdownlint.mjs",
+		"./config-npmpackagejsonlint.d.ts",
+		"./config-npmpackagejsonlint.js",
 		"./config-prettier.d.ts",
 		"./config-prettier.js",
-		"./npmpackagejsonlint.config.js",
 		"./scripts-nodejs.js"
 	],
 	"scripts": {
@@ -40,6 +56,7 @@
 	},
 	"dependencies": {
 		"@commitlint/cli": "^21.2.4",
+		"@hyperupcall/commitlint-config": "^0.1.3",
 		"@hyperupcall/eslint-config": "2.1.0",
 		"@hyperupcall/markdownlint-config": "0.5.2",
 		"@hyperupcall/npm-package-json-lint-config": "^0.2.0",
@@ -53,10 +70,10 @@
 		"typescript": "^7.0.2"
 	},
 	"markdownlint-cli2": {
-		"extends": "./node_modules/@hyperupcall/scripts-nodejs/.markdownlint.mjs"
+		"extends": "./config-markdownlint.mjs"
 	},
 	"npmpackagejsonlint": {
-		"extends": "@hyperupcall/scripts-nodejs/npmpackagejsonlint.config.js"
+		"extends": "./config-npmpackagejsonlint.js"
 	},
 	"prettier": "./config-prettier.js"
 }

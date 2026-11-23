@@ -1,2 +1,1 @@
-type exports = Record<PropertyKey, unknown>
-export default exports
+export { default } from '@hyperupcall/eslint-config'

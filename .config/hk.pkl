@@ -25,7 +25,7 @@ hooks {
         steps {
             ["commitlint"] {
                 check = new Command {
-                    argv = List("commitlint", "--edit", "{{commit_msg_file}}")
+                    argv = List("commitlint", "--config", ".config/commitlintrc.yaml", "--edit", "{{commit_msg_file}}")
                 }
             }
         }
