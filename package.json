@@ -30,6 +30,8 @@
 		"./config-eslint.js",
 		"./config-prettier.d.ts",
 		"./config-prettier.js",
+		"./npmpackagejsonlint.config.js",
+		"./.markdownlint-cli2.mjs",
 		"./scripts-nodejs.js"
 	],
 	"scripts": {
@@ -37,7 +39,10 @@
 		"lint": "hyperupcall-scripts-nodejs lint"
 	},
 	"dependencies": {
+		"@commitlint/cli": "^21.2.4",
 		"@hyperupcall/eslint-config": "2.1.0",
+		"@hyperupcall/markdownlint-config": "0.5.1",
+		"@hyperupcall/npm-package-json-lint-config": "^0.1.0",
 		"@hyperupcall/prettier-config": "^0.13.0",
 		"eslint": "^10.14.0",
 		"prettier": "^3.9.10"
